@@ -28,28 +28,29 @@ def recorrer_lista(lista):
 def eliminar_elemento(lista, elemento):
     posicion_encontrada = -1
     
-    #  Buscamos manualmente el índice del elemento a eliminar
+    # Buscamos manualmente el índice del elemento
     for i in range(len(lista)):
         if lista[i] == elemento:
             posicion_encontrada = i
-            break # Salimos en la primera aparición
+            break 
             
-    # Si no se encontró, avisamos y no hacemos nada
+    # Si no se encontró, devolvemos la lista intacta
     if posicion_encontrada == -1:
         print(f"Error: El elemento '{elemento}' no se encuentra en la lista.")
         return lista
 
-    #Desplazamos los elementos hacia la izquierda para "tapar" el hueco
-    #    del elemento que queremos borrar
-    for i in range(posicion_encontrada, len(lista) - 1):
-        lista[i] = lista[i + 1]
-        
-    #Como el último elemento quedó duplicado al final del viaje,
-    #    lo borramos usando la palabra clave 'del'
-    del lista[-1]
+    #Inicializamos una lista nueva con el tamaño exacto (un casillero menos)
+    lista_nueva = [0] * (len(lista) - 1)
     
+    #Pasamos los elementos usando un índice propio para la lista nueva
+    indice_nuevo = 0
+    for i in range(len(lista)):
+        if i != posicion_encontrada:
+            lista_nueva[indice_nuevo] = lista[i]
+            indice_nuevo = indice_nuevo + 1 # Avanzamos al siguiente casillero
+            
     print(f"Elemento '{elemento}' eliminado exitosamente.")
-    return lista
+    return lista_nueva
 
 
 def buscar_elemento(lista, elemento):
