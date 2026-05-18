@@ -34,15 +34,15 @@ def eliminar_elemento(lista, elemento):
             posicion_encontrada = i
             break 
             
-    # Si no se encontró, devolvemos la lista intacta
+# Si no se encontró, devolvemos la lista intacta
     if posicion_encontrada == -1:
         print(f"Error: El elemento '{elemento}' no se encuentra en la lista.")
         return lista
 
-    #Inicializamos una lista nueva con el tamaño exacto (un casillero menos)
+    
     lista_nueva = [0] * (len(lista) - 1)
     
-    #Pasamos los elementos usando un índice propio para la lista nueva
+    
     indice_nuevo = 0
     for i in range(len(lista)):
         if i != posicion_encontrada:
