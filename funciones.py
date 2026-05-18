@@ -1,6 +1,6 @@
 
 def insertar_elemento(lista, elemento, posicion=None):
-    if posicion is None:
+    if posicion == None:
         posicion = len(lista) # Si no se define, va al final
         
     #Agrandamos la lista un espacio agregando un casillero vacío al final
